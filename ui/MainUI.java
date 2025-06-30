@@ -4,13 +4,14 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import ui.AddProducts;
 
 public class MainUI extends JFrame implements ActionListener {
     // static ShoppingCart cart;
-    private JRadioButton radioButton1;
-    private JRadioButton radioButton2;
-    private JRadioButton radioButton3;
-    private JButton button;
+    private JRadioButton smartphoneSelector;
+    private JRadioButton laptopSelector;
+    private JRadioButton tabletsSelector;
+    private JButton shoppingCartButton;
     private JLabel label;
 
     public MainUI() {
@@ -21,27 +22,27 @@ public class MainUI extends JFrame implements ActionListener {
         ShoppingCart cart = new ShoppingCart();
         cart.setVisible(false);
 
-        radioButton1 = new JRadioButton("Smartphones");
-        radioButton2 = new JRadioButton("Laptops");
-        radioButton3 = new JRadioButton("Tablets");
+        smartphoneSelector = new JRadioButton("Smartphones");
+        laptopSelector = new JRadioButton("Laptops");
+        tabletsSelector = new JRadioButton("Tablets");
 
         // Group the radio buttons
         ButtonGroup group = new ButtonGroup();
-        group.add(radioButton1);
-        group.add(radioButton2);
-        group.add(radioButton3);
+        group.add(smartphoneSelector);
+        group.add(laptopSelector);
+        group.add(tabletsSelector);
 
-        button = new JButton("Shopping Cart");
+        shoppingCartButton = new JButton("Shopping Cart");
         label = new JLabel("Categories:");
 
         panel1.add(label);
-        panel1.add(radioButton1);
-        radioButton1.addActionListener((ActionListener) this);
-        panel1.add(radioButton2);
-        radioButton2.addActionListener((ActionListener) this);
-        panel1.add(radioButton3);
-        radioButton3.addActionListener((ActionListener) this);
-        panel1.add(button);
+        panel1.add(smartphoneSelector);
+        smartphoneSelector.addActionListener((ActionListener) this);
+        panel1.add(laptopSelector);
+        laptopSelector.addActionListener((ActionListener) this);
+        panel1.add(tabletsSelector);
+        tabletsSelector.addActionListener((ActionListener) this);
+        panel1.add(shoppingCartButton);
 
         // Create the second panel
         JPanel panel2 = new JPanel();
@@ -66,16 +67,16 @@ public class MainUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == radioButton1) {
-            label.setText("Category selected: " + radioButton1.getText());
-        } else if (e.getSource() == radioButton2) {
-            label.setText("Category selected: " + radioButton2.getText());
-        } else if (e.getSource() == radioButton3) {
-            label.setText("Category selected: " + radioButton3.getText());
+        if (e.getSource() == smartphoneSelector) {
+            label.setText("Category selected: " + smartphoneSelector.getText());
+        } else if (e.getSource() == laptopSelector) {
+            label.setText("Category selected: " + laptopSelector.getText());
+        } else if (e.getSource() == tabletsSelector) {
+            label.setText("Category selected: " + tabletsSelector.getText());
         }
     }
 
     public static void main(String[] args) {
-
+        MainUI mainUI = new MainUI();
     }
 }
